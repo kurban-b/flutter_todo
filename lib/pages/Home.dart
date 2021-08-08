@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-class Todo {
-  String? title;
-
-  Todo(title) {
-    this.title = title;
-  }
-}
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
