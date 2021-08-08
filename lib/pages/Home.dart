@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List todos = [];
+  String _titleOfTodo = '';
 
   @override
   void initState() {
@@ -51,7 +52,28 @@ class _HomeState extends State<Home> {
                 });
               },
             );
-          })
+          }),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          showDialog(context: context, builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Добавить дело'),
+              content: TextField(
+                onChanged: (String value) {
+                  _titleOfTodo = value;
+                },
+              ),
+              actions: [
+                ElevatedButton(onPressed: () {
+
+                  Navigator.of(context).pop();
+                }, child: Text('Добавить'))
+              ],
+            );
+          });
+        },
+      ),
     );
   }
 }
